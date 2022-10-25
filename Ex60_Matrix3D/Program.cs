@@ -11,7 +11,8 @@ int InputNumber(string text) // Ручной ввод числа
     Console.Write(text);
     return Convert.ToInt32(Console.ReadLine());
 }
-void FillArray(int[,,] array, int min, int max) // Заполнение массива
+
+void FillArray(int[,,] array, int min, int max) // Заполнение 3-х мерного массива
 {
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
@@ -19,23 +20,16 @@ void FillArray(int[,,] array, int min, int max) // Заполнение масс
                 array[i, j, k] = new Random().Next(min, max + 1);
 }
 
-// Вывод массива
+// Вывод 3-х мерного массива по строкам
 void PrintArray(int[,,] Array, string text)
 {
     Console.WriteLine(text);
-    // for (int i = 0; i < Array.GetLength(0); i++)
-    //     for (int j = 0; j < Array.GetLength(1); j++)
-    //     {
-    //         for (int k = 0; k < Array.GetLength(2); k++)
-    //             Console.Write($"{Array[i, j, k]} ({i}, {j}, {k})");
-    //     Console.WriteLine();
-    //     }
     for (int k = 0; k < Array.GetLength(2); k++)
         for (int i = 0; i < Array.GetLength(0); i++)
         {
             for (int j = 0; j < Array.GetLength(1); j++)
                 Console.Write($"{Array[i, j, k]}({i}, {j}, {k}) ");
-        Console.WriteLine();
+            Console.WriteLine();
         }
 }
 // Ввод данных
